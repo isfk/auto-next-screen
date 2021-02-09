@@ -31,7 +31,6 @@ func heartPoint() (x,y string) {
 	if heart {
 		heartX := fmt.Sprintf("%s%s%s", random.String(1, "3456"), random.String(1, "0123456789"), random.String(1, "0123456789"))
 		heartY := fmt.Sprintf("%s%s%s", random.String(1, "456789"), random.String(1, "0123456789"), random.String(1, "0123456789"))
-		fmt.Println("heart point ", heartX, heartY)
 		if err := exec.Command("adb", "shell", fmt.Sprintf("input tap %s %s", heartX, heartY)).Run(); err != nil {
 			log.Fatal(err)
 		}
@@ -39,7 +38,6 @@ func heartPoint() (x,y string) {
 		if err := exec.Command("adb", "shell", fmt.Sprintf("input tap %s %s", heartX, heartY)).Run(); err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println("heart clicked")
 	}
 	time.Sleep(time.Second * 1)
 	return
@@ -51,7 +49,7 @@ func swipePoint() {
 	}
 
 	startX4 := ""
-	startX3 := random.String(1, "3456")
+	startX3 := random.String(1, "345")
 	startX2 := random.String(1, "0123456789")
 	startX1 := random.String(1, "0123456789")
 	startX := fmt.Sprintf("%s%s%s%s", startX4, startX3, startX2, startX1)
@@ -69,7 +67,7 @@ func swipePoint() {
 	endX := fmt.Sprintf("%s%d%s%s", endX4, endX3, endX2, endX1)
 
 	endY4 := "1"
-	endY3 := cast.ToInt(startY3) - 5
+	endY3 := cast.ToInt(startY3) - 6
 	endY2 := random.String(1, "0123456789")
 	endY1 := random.String(1, "0123456789")
 	endY := fmt.Sprintf("%s%d%s%s", endY4, endY3, endY2, endY1)
@@ -82,7 +80,6 @@ func swipePoint() {
 	sleepTime := time.Second * nextTime
 
 	fmt.Println("next time ... ", sleepTime)
-	fmt.Println("...", "..", ".", "")
 	time.Sleep(sleepTime)
 	return
 }
