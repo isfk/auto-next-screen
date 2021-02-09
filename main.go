@@ -30,8 +30,8 @@ func next() {
 			if err := exec.Command("adb", "shell", fmt.Sprintf("input tap %s %s", heartX, heartY)).Run(); err != nil {
 				log.Fatal(err)
 			}
-			time.Sleep(time.Millisecond*150)
-			fmt.Println("heart click sleep time ", time.Millisecond*150)
+			time.Sleep(time.Millisecond*5)
+			fmt.Println("heart click sleep time ", time.Millisecond*5)
 			if err := exec.Command("adb", "shell", fmt.Sprintf("input tap %s %s", heartX, heartY)).Run(); err != nil {
 				log.Fatal(err)
 			}
