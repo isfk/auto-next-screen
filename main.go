@@ -30,8 +30,8 @@ func next() {
 			if err := exec.Command("adb", "shell", fmt.Sprintf("input tap %s %s", heartX, heartY)).Run(); err != nil {
 				log.Fatal(err)
 			}
-			time.Sleep(time.Millisecond*15)
-			fmt.Println("heart click sleep time ", time.Microsecond*15)
+			time.Sleep(time.Millisecond*150)
+			fmt.Println("heart click sleep time ", time.Millisecond*150)
 			if err := exec.Command("adb", "shell", fmt.Sprintf("input tap %s %s", heartX, heartY)).Run(); err != nil {
 				log.Fatal(err)
 			}
@@ -51,7 +51,7 @@ func next() {
 			log.Fatal(err)
 		}
 
-		nextTime := cast.ToDuration(fmt.Sprintf("%s%s", random.String(1, "1"), random.String(1, "345678")))
+		nextTime := cast.ToDuration(fmt.Sprintf("%s%s", random.String(1, "01"), random.String(1, "3456789")))
 		sleepTime := time.Second*nextTime
 		fmt.Println("next time ... ", sleepTime)
 		fmt.Println("...")
